@@ -1,0 +1,23 @@
+Original-image recalibration versus preserved WhatsApp calibration
+
+Previous: [1600, 1200], 39/39 detected, RMS 1.199105136 px
+Current: [3968, 2976], 39/39 detected, RMS 2.957892646 px
+Linear resolution scale: 2.48
+Current RMS expressed at previous resolution: 1.192698648 px
+Previous RMS expressed at current resolution: 2.973780738 px
+Resolution-normalized RMS change: -0.534272% (negative = lower)
+The normalized fit is very similar; this is not proof of improved physical measurement accuracy.
+
+Lowest per-image RMS: IMG_20261106_213225_857.jpg = 0.828736867 px
+Highest per-image RMS: IMG_20261106_213251_409.jpg = 5.720435759 px
+Detectors: {'findChessboardCorners': 39}
+Camera matrix:
+[[2810.549551515    0.          1980.389397169]
+ [   0.          2811.223867885 1480.131259476]
+ [   0.             0.             1.         ]]
+Distortion [k1, k2, p1, p2, k3]: [ 0.131131359 -0.609566886  0.001128378 -0.001109389  0.708897693]
+
+All 39 original source hashes remain unchanged after calibration.
+Full per-image errors: per_image_errors.csv
+Original input files are camera JPEGs, not lossless/raw files; no new input recompression was performed.
+The visible creases may contribute to residual errors in a planar-board calibration.

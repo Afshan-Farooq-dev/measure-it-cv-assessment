@@ -1,0 +1,22 @@
+Inner corners: 7 x 9 (63 points/view)
+Square size: 24 mm; image size: 3968 x 2976
+Detected: 39/39; not detected: 0; unreadable: 0
+All 39 detections used; no outlier removal.
+OpenCV RMS reprojection error: 2.957893 px
+Independently calculated RMS: 2.957893 px
+Mean Euclidean reprojection error: 2.309072 px
+Per-image RMS range: 0.828737 to 5.720436 px
+Camera matrix (pixels):
+[[2.81054955e+03 0.00000000e+00 1.98038940e+03]
+ [0.00000000e+00 2.81122387e+03 1.48013126e+03]
+ [0.00000000e+00 0.00000000e+00 1.00000000e+00]]
+Distortion [k1, k2, p1, p2, k3]:
+[ 0.13113136 -0.60956689  0.00112838 -0.00110939  0.70889769]
+Example source: IMG_20261106_213420_747.jpg
+Parameters: E:\Computer_Vision\calibration\camera_params.npz
+
+Limitations:
+- Reprojection error is an in-sample pixel fit, not an independent measurement-accuracy test.
+- Reuse only with the same lens, zoom, focus regime, crop, and image processing/orientation.
+- The supplied photos show creases in the paper; nonplanarity violates the planar-board assumption.
+- Parameters apply to the supplied 3968x2976 image geometry; pixel errors depend on resolution.

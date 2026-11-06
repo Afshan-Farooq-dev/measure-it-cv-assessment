@@ -1,0 +1,857 @@
+{
+  "image_directory": "E:\\Computer_Vision\\calibration_images",
+  "versions": {
+    "python": "3.12.10",
+    "opencv": "4.12.0",
+    "numpy": "2.2.6"
+  },
+  "pattern_size_inner_corners": [
+    7,
+    9
+  ],
+  "square_size_mm": 24.0,
+  "image_size": [
+    1600,
+    1200
+  ],
+  "orientation_policy": "encoded pixels; EXIF auto-rotation disabled",
+  "total_images": 39,
+  "successful_detections": 39,
+  "failed_detections": 0,
+  "unreadable_images": 0,
+  "images_used": 39,
+  "outlier_images_removed": 0,
+  "model": "OpenCV pinhole with k1,k2,p1,p2,k3; calibration flags=0",
+  "corner_refinement": {
+    "window": [
+      11,
+      11
+    ],
+    "max_iterations": 100,
+    "epsilon": 0.001
+  },
+  "solver": {
+    "max_iterations": 100,
+    "epsilon": 1e-09,
+    "threads": 1,
+    "rng_seed": 0
+  },
+  "opencv_rms_px": 1.199105136093592,
+  "reprojection": {
+    "rms_px": 1.199105210267608,
+    "mean_euclidean_px": 0.9385032105663625,
+    "max_px": 7.285702263310817,
+    "point_count": 2457,
+    "per_view": [
+      {
+        "rms_px": 1.572035580801986,
+        "mean_euclidean_px": 1.3059587175114875,
+        "max_px": 5.707713595167017,
+        "file": "WhatsApp Image 2026-11-06 at 9.46.11 PM.jpeg"
+      },
+      {
+        "rms_px": 1.4680633300405368,
+        "mean_euclidean_px": 1.1579223650170252,
+        "max_px": 4.906256794355329,
+        "file": "WhatsApp Image 2026-11-06 at 9.46.12 PM.jpeg"
+      },
+      {
+        "rms_px": 1.890795311066008,
+        "mean_euclidean_px": 1.4885297257468055,
+        "max_px": 6.443159375854946,
+        "file": "WhatsApp Image 2026-11-06 at 9.46.14 PM (1).jpeg"
+      },
+      {
+        "rms_px": 1.1393474935602355,
+        "mean_euclidean_px": 1.0449001926876482,
+        "max_px": 2.6340768774932064,
+        "file": "WhatsApp Image 2026-11-06 at 9.46.14 PM.jpeg"
+      },
+      {
+        "rms_px": 1.0387847605811307,
+        "mean_euclidean_px": 0.7991247901637153,
+        "max_px": 4.035267409256148,
+        "file": "WhatsApp Image 2026-11-06 at 9.46.16 PM (1).jpeg"
+      },
+      {
+        "rms_px": 1.099105614081099,
+        "mean_euclidean_px": 0.8885868509848341,
+        "max_px": 3.9397546757563764,
+        "file": "WhatsApp Image 2026-11-06 at 9.46.16 PM.jpeg"
+      },
+      {
+        "rms_px": 1.9470192907472583,
+        "mean_euclidean_px": 1.6632137343253635,
+        "max_px": 5.16612361234427,
+        "file": "WhatsApp Image 2026-11-06 at 9.46.17 PM.jpeg"
+      },
+      {
+        "rms_px": 1.099134087518539,
+        "mean_euclidean_px": 1.011111944586168,
+        "max_px": 1.9947788588375803,
+        "file": "WhatsApp Image 2026-11-06 at 9.46.20 PM.jpeg"
+      },
+      {
+        "rms_px": 1.1724833696884345,
+        "mean_euclidean_px": 1.0080218634274585,
+        "max_px": 4.139474206489899,
+        "file": "WhatsApp Image 2026-11-06 at 9.46.21 PM (1).jpeg"
+      },
+      {
+        "rms_px": 0.6212860376405052,
+        "mean_euclidean_px": 0.5563163427008635,
+        "max_px": 1.418952842109587,
+        "file": "WhatsApp Image 2026-11-06 at 9.46.21 PM.jpeg"
+      },
+      {
+        "rms_px": 1.3815345501587875,
+        "mean_euclidean_px": 1.2175155222360052,
+        "max_px": 3.389379881955197,
+        "file": "WhatsApp Image 2026-11-06 at 9.46.22 PM (1).jpeg"
+      },
+      {
+        "rms_px": 1.436783126732723,
+        "mean_euclidean_px": 1.2983860721407592,
+        "max_px": 3.331586953070857,
+        "file": "WhatsApp Image 2026-11-06 at 9.46.22 PM.jpeg"
+      },
+      {
+        "rms_px": 0.7313508165662398,
+        "mean_euclidean_px": 0.6132129898649744,
+        "max_px": 2.184136281489981,
+        "file": "WhatsApp Image 2026-11-06 at 9.46.23 PM (1).jpeg"
+      },
+      {
+        "rms_px": 1.8106917813177568,
+        "mean_euclidean_px": 1.5632697232310808,
+        "max_px": 4.961205816991407,
+        "file": "WhatsApp Image 2026-11-06 at 9.46.23 PM.jpeg"
+      },
+      {
+        "rms_px": 0.742746051413027,
+        "mean_euclidean_px": 0.6787923321875721,
+        "max_px": 1.3335470639792286,
+        "file": "WhatsApp Image 2026-11-06 at 9.46.24 PM.jpeg"
+      },
+      {
+        "rms_px": 0.7271985981049797,
+        "mean_euclidean_px": 0.6548941629887219,
+        "max_px": 1.547481938056163,
+        "file": "WhatsApp Image 2026-11-06 at 9.46.25 PM.jpeg"
+      },
+      {
+        "rms_px": 2.301903900045799,
+        "mean_euclidean_px": 1.8279418069013385,
+        "max_px": 7.285702263310817,
+        "file": "WhatsApp Image 2026-11-06 at 9.46.26 PM (1).jpeg"
+      },
+      {
+        "rms_px": 0.9113902486540557,
+        "mean_euclidean_px": 0.7798755658827108,
+        "max_px": 2.673230204663706,
+        "file": "WhatsApp Image 2026-11-06 at 9.46.26 PM.jpeg"
+      },
+      {
+        "rms_px": 1.1025238642843125,
+        "mean_euclidean_px": 0.9811855588553182,
+        "max_px": 2.341778855337979,
+        "file": "WhatsApp Image 2026-11-06 at 9.46.27 PM.jpeg"
+      },
+      {
+        "rms_px": 0.8753322993758977,
+        "mean_euclidean_px": 0.7994937265065236,
+        "max_px": 2.124287445552853,
+        "file": "WhatsApp Image 2026-11-06 at 9.46.29 PM (1).jpeg"
+      },
+      {
+        "rms_px": 0.8969642190775965,
+        "mean_euclidean_px": 0.7784064256936817,
+        "max_px": 2.5545610351349706,
+        "file": "WhatsApp Image 2026-11-06 at 9.46.29 PM.jpeg"
+      },
+      {
+        "rms_px": 0.7239381146460244,
+        "mean_euclidean_px": 0.668053456553193,
+        "max_px": 1.596058080644473,
+        "file": "WhatsApp Image 2026-11-06 at 9.46.30 PM (1).jpeg"
+      },
+      {
+        "rms_px": 0.7429761080608094,
+        "mean_euclidean_px": 0.6162503753582005,
+        "max_px": 2.600985442992368,
+        "file": "WhatsApp Image 2026-11-06 at 9.46.30 PM.jpeg"
+      },
+      {
+        "rms_px": 0.3919549063144502,
+        "mean_euclidean_px": 0.3518040403987344,
+        "max_px": 0.9040461021548866,
+        "file": "WhatsApp Image 2026-11-06 at 9.46.31 PM.jpeg"
+      },
+      {
+        "rms_px": 0.5245071906013861,
+        "mean_euclidean_px": 0.47365509440100656,
+        "max_px": 1.5469668510409482,
+        "file": "WhatsApp Image 2026-11-06 at 9.46.32 PM (1).jpeg"
+      },
+      {
+        "rms_px": 0.3500637918795643,
+        "mean_euclidean_px": 0.32430024357617915,
+        "max_px": 0.6824215784710926,
+        "file": "WhatsApp Image 2026-11-06 at 9.46.32 PM.jpeg"
+      },
+      {
+        "rms_px": 1.06232905806366,
+        "mean_euclidean_px": 0.8945918622105352,
+        "max_px": 3.0972223477052916,
+        "file": "WhatsApp Image 2026-11-06 at 9.46.35 PM.jpeg"
+      },
+      {
+        "rms_px": 1.0827850468246463,
+        "mean_euclidean_px": 0.8965610083388607,
+        "max_px": 3.568261770684129,
+        "file": "WhatsApp Image 2026-11-06 at 9.46.36 PM (1).jpeg"
+      },
+      {
+        "rms_px": 1.14551988036582,
+        "mean_euclidean_px": 1.0106665339166696,
+        "max_px": 3.105480993932003,
+        "file": "WhatsApp Image 2026-11-06 at 9.46.36 PM (2).jpeg"
+      },
+      {
+        "rms_px": 1.2022374825054156,
+        "mean_euclidean_px": 1.0196770162598894,
+        "max_px": 4.062823330868662,
+        "file": "WhatsApp Image 2026-11-06 at 9.46.36 PM.jpeg"
+      },
+      {
+        "rms_px": 0.5698452218590162,
+        "mean_euclidean_px": 0.5218488305867689,
+        "max_px": 1.0893803366674253,
+        "file": "WhatsApp Image 2026-11-06 at 9.46.39 PM (1).jpeg"
+      },
+      {
+        "rms_px": 0.6123874957438099,
+        "mean_euclidean_px": 0.5297188028835678,
+        "max_px": 1.752434710322162,
+        "file": "WhatsApp Image 2026-11-06 at 9.46.39 PM.jpeg"
+      },
+      {
+        "rms_px": 1.6543129818098739,
+        "mean_euclidean_px": 1.3132374668016018,
+        "max_px": 6.129947819713761,
+        "file": "WhatsApp Image 2026-11-06 at 9.46.40 PM (1).jpeg"
+      },
+      {
+        "rms_px": 1.5180266777251654,
+        "mean_euclidean_px": 1.2005728394510728,
+        "max_px": 5.206613025911243,
+        "file": "WhatsApp Image 2026-11-06 at 9.46.40 PM.jpeg"
+      },
+      {
+        "rms_px": 1.6847509337036446,
+        "mean_euclidean_px": 1.3196753314853986,
+        "max_px": 5.831881920847125,
+        "file": "WhatsApp Image 2026-11-06 at 9.46.41 PM.jpeg"
+      },
+      {
+        "rms_px": 1.3959222608159247,
+        "mean_euclidean_px": 1.0991818425643092,
+        "max_px": 5.0754881003284025,
+        "file": "WhatsApp Image 2026-11-06 at 9.46.43 PM.jpeg"
+      },
+      {
+        "rms_px": 0.8969931510954445,
+        "mean_euclidean_px": 0.7534488443060503,
+        "max_px": 2.7180061371357844,
+        "file": "WhatsApp Image 2026-11-06 at 9.46.44 PM (1).jpeg"
+      },
+      {
+        "rms_px": 1.0518632221806254,
+        "mean_euclidean_px": 0.8184005105592147,
+        "max_px": 4.162960676657288,
+        "file": "WhatsApp Image 2026-11-06 at 9.46.44 PM.jpeg"
+      },
+      {
+        "rms_px": 0.7888364898200679,
+        "mean_euclidean_px": 0.6733206987968279,
+        "max_px": 2.2500131850572376,
+        "file": "WhatsApp Image 2026-11-06 at 9.46.45 PM.jpeg"
+      }
+    ]
+  },
+  "camera_matrix": [
+    [
+      1135.7458590546635,
+      0.0,
+      798.5798677878098
+    ],
+    [
+      0.0,
+      1135.9810639367133,
+      596.8838736606842
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "distortion_order": [
+    "k1",
+    "k2",
+    "p1",
+    "p2",
+    "k3"
+  ],
+  "dist_coeffs": [
+    0.13964769460601567,
+    -0.6509405473344736,
+    0.0011915795671048072,
+    -0.0010810977512387182,
+    0.7610076876680167
+  ],
+  "example": {
+    "source": "WhatsApp Image 2026-11-06 at 9.46.36 PM (1).jpeg",
+    "selection": "median per-view RMS",
+    "alpha": 1.0,
+    "cropped": false,
+    "valid_roi": [
+      34,
+      26,
+      1531,
+      1146
+    ],
+    "output_camera_matrix": [
+      [
+        1137.852235685589,
+        0.0,
+        796.8982042282327
+      ],
+      [
+        0.0,
+        1135.530591337328,
+        598.1776608702774
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ]
+  },
+  "limitations": [
+    "Reprojection error is an in-sample pixel fit, not an independent measurement-accuracy test.",
+    "Reuse only with the same lens, zoom, focus regime, crop, and image processing/orientation.",
+    "The supplied photos show creases in the paper; nonplanarity violates the planar-board assumption.",
+    "These are 1600x1200 WhatsApp-named JPEGs; original camera-resolution intrinsics are not established."
+  ],
+  "images": [
+    {
+      "index": 1,
+      "file": "WhatsApp Image 2026-11-06 at 9.46.11 PM.jpeg",
+      "sha256": "cfe42c3e0d28f025a7667dc6f166e7d2ba089152a32608e8a284c278944daf69",
+      "image_size": [
+        1600,
+        1200
+      ],
+      "status": "detected",
+      "corners_detected": 63,
+      "detector": "findChessboardCorners",
+      "annotation": "detections\\01_WhatsApp Image 2026-11-06 at 9.46.11 PM.jpg"
+    },
+    {
+      "index": 2,
+      "file": "WhatsApp Image 2026-11-06 at 9.46.12 PM.jpeg",
+      "sha256": "227a801cf2adc45c9800df8de18cf6ce97ca49510844735ed3843b2b563fbc73",
+      "image_size": [
+        1600,
+        1200
+      ],
+      "status": "detected",
+      "corners_detected": 63,
+      "detector": "findChessboardCorners",
+      "annotation": "detections\\02_WhatsApp Image 2026-11-06 at 9.46.12 PM.jpg"
+    },
+    {
+      "index": 3,
+      "file": "WhatsApp Image 2026-11-06 at 9.46.14 PM (1).jpeg",
+      "sha256": "c33042347f27c253a959c7f694b55e4885484a3dc116b2dd8a6daab883a14ae1",
+      "image_size": [
+        1600,
+        1200
+      ],
+      "status": "detected",
+      "corners_detected": 63,
+      "detector": "findChessboardCorners",
+      "annotation": "detections\\03_WhatsApp Image 2026-11-06 at 9.46.14 PM (1).jpg"
+    },
+    {
+      "index": 4,
+      "file": "WhatsApp Image 2026-11-06 at 9.46.14 PM.jpeg",
+      "sha256": "0e2c0c4e90a906b14bfd63c521940900fc796d42a1e71452b28392a5d31ca661",
+      "image_size": [
+        1600,
+        1200
+      ],
+      "status": "detected",
+      "corners_detected": 63,
+      "detector": "findChessboardCorners",
+      "annotation": "detections\\04_WhatsApp Image 2026-11-06 at 9.46.14 PM.jpg"
+    },
+    {
+      "index": 5,
+      "file": "WhatsApp Image 2026-11-06 at 9.46.16 PM (1).jpeg",
+      "sha256": "529c8377bdc892af212d0e9614b2379f31472f2fc15609268977168327a565c5",
+      "image_size": [
+        1600,
+        1200
+      ],
+      "status": "detected",
+      "corners_detected": 63,
+      "detector": "findChessboardCorners",
+      "annotation": "detections\\05_WhatsApp Image 2026-11-06 at 9.46.16 PM (1).jpg"
+    },
+    {
+      "index": 6,
+      "file": "WhatsApp Image 2026-11-06 at 9.46.16 PM.jpeg",
+      "sha256": "039eff7a50b1f82053c13642fcadd9b05ff7ae03020a458b1290d865b4447e3a",
+      "image_size": [
+        1600,
+        1200
+      ],
+      "status": "detected",
+      "corners_detected": 63,
+      "detector": "findChessboardCorners",
+      "annotation": "detections\\06_WhatsApp Image 2026-11-06 at 9.46.16 PM.jpg"
+    },
+    {
+      "index": 7,
+      "file": "WhatsApp Image 2026-11-06 at 9.46.17 PM.jpeg",
+      "sha256": "78bce6a067749fcd246a93657a8d17c7f6cfec413ebadae8a570d59f5f340806",
+      "image_size": [
+        1600,
+        1200
+      ],
+      "status": "detected",
+      "corners_detected": 63,
+      "detector": "findChessboardCorners",
+      "annotation": "detections\\07_WhatsApp Image 2026-11-06 at 9.46.17 PM.jpg"
+    },
+    {
+      "index": 8,
+      "file": "WhatsApp Image 2026-11-06 at 9.46.20 PM.jpeg",
+      "sha256": "3755b82feac650f5bdca64255da039b13fb5cf67eb940a184b4583664ece4961",
+      "image_size": [
+        1600,
+        1200
+      ],
+      "status": "detected",
+      "corners_detected": 63,
+      "detector": "findChessboardCorners",
+      "annotation": "detections\\08_WhatsApp Image 2026-11-06 at 9.46.20 PM.jpg"
+    },
+    {
+      "index": 9,
+      "file": "WhatsApp Image 2026-11-06 at 9.46.21 PM (1).jpeg",
+      "sha256": "4e37e85d7f54ca17afed7756d8dbfedf561edfe5bd34cc5a8fc39df5ae66d7e7",
+      "image_size": [
+        1600,
+        1200
+      ],
+      "status": "detected",
+      "corners_detected": 63,
+      "detector": "findChessboardCorners",
+      "annotation": "detections\\09_WhatsApp Image 2026-11-06 at 9.46.21 PM (1).jpg"
+    },
+    {
+      "index": 10,
+      "file": "WhatsApp Image 2026-11-06 at 9.46.21 PM.jpeg",
+      "sha256": "0ecbc612074ad9441850473d34f1fda3a00a7c2b438c04c0dfa165222f61ea66",
+      "image_size": [
+        1600,
+        1200
+      ],
+      "status": "detected",
+      "corners_detected": 63,
+      "detector": "findChessboardCorners",
+      "annotation": "detections\\10_WhatsApp Image 2026-11-06 at 9.46.21 PM.jpg"
+    },
+    {
+      "index": 11,
+      "file": "WhatsApp Image 2026-11-06 at 9.46.22 PM (1).jpeg",
+      "sha256": "c5e233c21b6514fcdd535b8744095e0cec3a4bc19ac802519af0576bcb34df01",
+      "image_size": [
+        1600,
+        1200
+      ],
+      "status": "detected",
+      "corners_detected": 63,
+      "detector": "findChessboardCorners",
+      "annotation": "detections\\11_WhatsApp Image 2026-11-06 at 9.46.22 PM (1).jpg"
+    },
+    {
+      "index": 12,
+      "file": "WhatsApp Image 2026-11-06 at 9.46.22 PM.jpeg",
+      "sha256": "70e50fecf612178060e90126bc2e21c9bd9d7a0fc69f5a9e27d3491df689f20e",
+      "image_size": [
+        1600,
+        1200
+      ],
+      "status": "detected",
+      "corners_detected": 63,
+      "detector": "findChessboardCorners",
+      "annotation": "detections\\12_WhatsApp Image 2026-11-06 at 9.46.22 PM.jpg"
+    },
+    {
+      "index": 13,
+      "file": "WhatsApp Image 2026-11-06 at 9.46.23 PM (1).jpeg",
+      "sha256": "87f7ab835211b8dabd7986e3f1fc13ba3146502acfc6bb8d61f3fb056dc6d392",
+      "image_size": [
+        1600,
+        1200
+      ],
+      "status": "detected",
+      "corners_detected": 63,
+      "detector": "findChessboardCorners",
+      "annotation": "detections\\13_WhatsApp Image 2026-11-06 at 9.46.23 PM (1).jpg"
+    },
+    {
+      "index": 14,
+      "file": "WhatsApp Image 2026-11-06 at 9.46.23 PM.jpeg",
+      "sha256": "45a834e3dbe76dbb6f88f38ec3bdfcec529ceaedccf3a25a14cd490490d01acf",
+      "image_size": [
+        1600,
+        1200
+      ],
+      "status": "detected",
+      "corners_detected": 63,
+      "detector": "findChessboardCorners",
+      "annotation": "detections\\14_WhatsApp Image 2026-11-06 at 9.46.23 PM.jpg"
+    },
+    {
+      "index": 15,
+      "file": "WhatsApp Image 2026-11-06 at 9.46.24 PM.jpeg",
+      "sha256": "50211f25b0af80e1c58f59b933a8a5079d320cae150f9720a896dfcb85b8de86",
+      "image_size": [
+        1600,
+        1200
+      ],
+      "status": "detected",
+      "corners_detected": 63,
+      "detector": "findChessboardCorners",
+      "annotation": "detections\\15_WhatsApp Image 2026-11-06 at 9.46.24 PM.jpg"
+    },
+    {
+      "index": 16,
+      "file": "WhatsApp Image 2026-11-06 at 9.46.25 PM.jpeg",
+      "sha256": "ccd44fdb93ba6182d357106c54056457f9e33380978d4f960f1a98281a7ac0bb",
+      "image_size": [
+        1600,
+        1200
+      ],
+      "status": "detected",
+      "corners_detected": 63,
+      "detector": "findChessboardCorners",
+      "annotation": "detections\\16_WhatsApp Image 2026-11-06 at 9.46.25 PM.jpg"
+    },
+    {
+      "index": 17,
+      "file": "WhatsApp Image 2026-11-06 at 9.46.26 PM (1).jpeg",
+      "sha256": "74a915a75ff0e729b43ba784a430e45802de87476410fbe18c865c1567d79edb",
+      "image_size": [
+        1600,
+        1200
+      ],
+      "status": "detected",
+      "corners_detected": 63,
+      "detector": "findChessboardCorners",
+      "annotation": "detections\\17_WhatsApp Image 2026-11-06 at 9.46.26 PM (1).jpg"
+    },
+    {
+      "index": 18,
+      "file": "WhatsApp Image 2026-11-06 at 9.46.26 PM.jpeg",
+      "sha256": "bc5ce22bc445bc08669650dd1bc7798e55be46a6aa2c7a6d6a96a6de8378e320",
+      "image_size": [
+        1600,
+        1200
+      ],
+      "status": "detected",
+      "corners_detected": 63,
+      "detector": "findChessboardCorners",
+      "annotation": "detections\\18_WhatsApp Image 2026-11-06 at 9.46.26 PM.jpg"
+    },
+    {
+      "index": 19,
+      "file": "WhatsApp Image 2026-11-06 at 9.46.27 PM.jpeg",
+      "sha256": "af8ef93490222a1769d1de41a6ce69f3566a1c44a7172f20fe35ccfc627e76df",
+      "image_size": [
+        1600,
+        1200
+      ],
+      "status": "detected",
+      "corners_detected": 63,
+      "detector": "findChessboardCorners",
+      "annotation": "detections\\19_WhatsApp Image 2026-11-06 at 9.46.27 PM.jpg"
+    },
+    {
+      "index": 20,
+      "file": "WhatsApp Image 2026-11-06 at 9.46.29 PM (1).jpeg",
+      "sha256": "4252584ead15aee347df37a039a08e81d4f460fc02954a3f549d06aabe6c7ad3",
+      "image_size": [
+        1600,
+        1200
+      ],
+      "status": "detected",
+      "corners_detected": 63,
+      "detector": "findChessboardCorners",
+      "annotation": "detections\\20_WhatsApp Image 2026-11-06 at 9.46.29 PM (1).jpg"
+    },
+    {
+      "index": 21,
+      "file": "WhatsApp Image 2026-11-06 at 9.46.29 PM.jpeg",
+      "sha256": "209afa91e78473c9f12c79200af289c2e0d7b723b801c4b8eed565814128eb17",
+      "image_size": [
+        1600,
+        1200
+      ],
+      "status": "detected",
+      "corners_detected": 63,
+      "detector": "findChessboardCorners",
+      "annotation": "detections\\21_WhatsApp Image 2026-11-06 at 9.46.29 PM.jpg"
+    },
+    {
+      "index": 22,
+      "file": "WhatsApp Image 2026-11-06 at 9.46.30 PM (1).jpeg",
+      "sha256": "062af12a1a5b293f38bfcc9bff87ad18c7962752d58fecb52c396b7427031dde",
+      "image_size": [
+        1600,
+        1200
+      ],
+      "status": "detected",
+      "corners_detected": 63,
+      "detector": "findChessboardCorners",
+      "annotation": "detections\\22_WhatsApp Image 2026-11-06 at 9.46.30 PM (1).jpg"
+    },
+    {
+      "index": 23,
+      "file": "WhatsApp Image 2026-11-06 at 9.46.30 PM.jpeg",
+      "sha256": "e4fb05d0687c3b8e1dfb11d867fbd77852b010211fd63616f69c7d26a2b8c0a5",
+      "image_size": [
+        1600,
+        1200
+      ],
+      "status": "detected",
+      "corners_detected": 63,
+      "detector": "findChessboardCorners",
+      "annotation": "detections\\23_WhatsApp Image 2026-11-06 at 9.46.30 PM.jpg"
+    },
+    {
+      "index": 24,
+      "file": "WhatsApp Image 2026-11-06 at 9.46.31 PM.jpeg",
+      "sha256": "16f18b38f950e484db4c0c4af2dd6c8a3c7f93120408aeee6a1b24936a606ca0",
+      "image_size": [
+        1600,
+        1200
+      ],
+      "status": "detected",
+      "corners_detected": 63,
+      "detector": "findChessboardCorners",
+      "annotation": "detections\\24_WhatsApp Image 2026-11-06 at 9.46.31 PM.jpg"
+    },
+    {
+      "index": 25,
+      "file": "WhatsApp Image 2026-11-06 at 9.46.32 PM (1).jpeg",
+      "sha256": "8bd393632e82e6d5220d24704f55c714cadb8b5ac00493cde533704fe48e270c",
+      "image_size": [
+        1600,
+        1200
+      ],
+      "status": "detected",
+      "corners_detected": 63,
+      "detector": "findChessboardCorners",
+      "annotation": "detections\\25_WhatsApp Image 2026-11-06 at 9.46.32 PM (1).jpg"
+    },
+    {
+      "index": 26,
+      "file": "WhatsApp Image 2026-11-06 at 9.46.32 PM.jpeg",
+      "sha256": "e684af8363bf8eb311f912212ae682f3ead05734e06aaaf0373c2dd5c5b444cd",
+      "image_size": [
+        1600,
+        1200
+      ],
+      "status": "detected",
+      "corners_detected": 63,
+      "detector": "findChessboardCorners",
+      "annotation": "detections\\26_WhatsApp Image 2026-11-06 at 9.46.32 PM.jpg"
+    },
+    {
+      "index": 27,
+      "file": "WhatsApp Image 2026-11-06 at 9.46.35 PM.jpeg",
+      "sha256": "119e50faec885ed10de4806711bf1b36036a7943e23ab4c09dbc9b2fdd8e2c7b",
+      "image_size": [
+        1600,
+        1200
+      ],
+      "status": "detected",
+      "corners_detected": 63,
+      "detector": "findChessboardCorners",
+      "annotation": "detections\\27_WhatsApp Image 2026-11-06 at 9.46.35 PM.jpg"
+    },
+    {
+      "index": 28,
+      "file": "WhatsApp Image 2026-11-06 at 9.46.36 PM (1).jpeg",
+      "sha256": "bb96bfa773c1a89580b564eedb856caf7fc3b6c5b214df8b9c96f036fa42d8e7",
+      "image_size": [
+        1600,
+        1200
+      ],
+      "status": "detected",
+      "corners_detected": 63,
+      "detector": "findChessboardCorners",
+      "annotation": "detections\\28_WhatsApp Image 2026-11-06 at 9.46.36 PM (1).jpg"
+    },
+    {
+      "index": 29,
+      "file": "WhatsApp Image 2026-11-06 at 9.46.36 PM (2).jpeg",
+      "sha256": "3e2a04b08b157e1a098a633a655be25beb41b8cc0bf969e1a1407a03aa1effe1",
+      "image_size": [
+        1600,
+        1200
+      ],
+      "status": "detected",
+      "corners_detected": 63,
+      "detector": "findChessboardCorners",
+      "annotation": "detections\\29_WhatsApp Image 2026-11-06 at 9.46.36 PM (2).jpg"
+    },
+    {
+      "index": 30,
+      "file": "WhatsApp Image 2026-11-06 at 9.46.36 PM.jpeg",
+      "sha256": "ea188906edb7ef7b8a47e0851f32d0a5939df8ac22b9d0cbf8bc625327c25f51",
+      "image_size": [
+        1600,
+        1200
+      ],
+      "status": "detected",
+      "corners_detected": 63,
+      "detector": "findChessboardCorners",
+      "annotation": "detections\\30_WhatsApp Image 2026-11-06 at 9.46.36 PM.jpg"
+    },
+    {
+      "index": 31,
+      "file": "WhatsApp Image 2026-11-06 at 9.46.39 PM (1).jpeg",
+      "sha256": "faf86433631a1ac09d5c6eb3a0f5842abe4126c1ef6af125d6e6ce2cfa3937d0",
+      "image_size": [
+        1600,
+        1200
+      ],
+      "status": "detected",
+      "corners_detected": 63,
+      "detector": "findChessboardCorners",
+      "annotation": "detections\\31_WhatsApp Image 2026-11-06 at 9.46.39 PM (1).jpg"
+    },
+    {
+      "index": 32,
+      "file": "WhatsApp Image 2026-11-06 at 9.46.39 PM.jpeg",
+      "sha256": "2a49b96681f175a2b631df0bfc4129e338b16ca37a5258904130806baec93aa0",
+      "image_size": [
+        1600,
+        1200
+      ],
+      "status": "detected",
+      "corners_detected": 63,
+      "detector": "findChessboardCorners",
+      "annotation": "detections\\32_WhatsApp Image 2026-11-06 at 9.46.39 PM.jpg"
+    },
+    {
+      "index": 33,
+      "file": "WhatsApp Image 2026-11-06 at 9.46.40 PM (1).jpeg",
+      "sha256": "cdece9509993e003f8dbef13d87e5fa6fab67d964accd5b43a316b9c172bdb2c",
+      "image_size": [
+        1600,
+        1200
+      ],
+      "status": "detected",
+      "corners_detected": 63,
+      "detector": "findChessboardCorners",
+      "annotation": "detections\\33_WhatsApp Image 2026-11-06 at 9.46.40 PM (1).jpg"
+    },
+    {
+      "index": 34,
+      "file": "WhatsApp Image 2026-11-06 at 9.46.40 PM.jpeg",
+      "sha256": "d0955e637c6295c9289e1781588fdb7f49cbe7ba8dcb89a1dc20962f77f988da",
+      "image_size": [
+        1600,
+        1200
+      ],
+      "status": "detected",
+      "corners_detected": 63,
+      "detector": "findChessboardCorners",
+      "annotation": "detections\\34_WhatsApp Image 2026-11-06 at 9.46.40 PM.jpg"
+    },
+    {
+      "index": 35,
+      "file": "WhatsApp Image 2026-11-06 at 9.46.41 PM.jpeg",
+      "sha256": "1fcf2b1d9ff2c2e84cd2c622d9816c6d6a7f5a649f65ce84f89b14523d49a431",
+      "image_size": [
+        1600,
+        1200
+      ],
+      "status": "detected",
+      "corners_detected": 63,
+      "detector": "findChessboardCorners",
+      "annotation": "detections\\35_WhatsApp Image 2026-11-06 at 9.46.41 PM.jpg"
+    },
+    {
+      "index": 36,
+      "file": "WhatsApp Image 2026-11-06 at 9.46.43 PM.jpeg",
+      "sha256": "06400900f500e217a0164da2825c8176993f2d2871541f8ff65fe31e6306e8ca",
+      "image_size": [
+        1600,
+        1200
+      ],
+      "status": "detected",
+      "corners_detected": 63,
+      "detector": "findChessboardCorners",
+      "annotation": "detections\\36_WhatsApp Image 2026-11-06 at 9.46.43 PM.jpg"
+    },
+    {
+      "index": 37,
+      "file": "WhatsApp Image 2026-11-06 at 9.46.44 PM (1).jpeg",
+      "sha256": "84c890d083e450a200ebd49c70266cdd74f88e55b4a463d3a66127beb05e3f11",
+      "image_size": [
+        1600,
+        1200
+      ],
+      "status": "detected",
+      "corners_detected": 63,
+      "detector": "findChessboardCorners",
+      "annotation": "detections\\37_WhatsApp Image 2026-11-06 at 9.46.44 PM (1).jpg"
+    },
+    {
+      "index": 38,
+      "file": "WhatsApp Image 2026-11-06 at 9.46.44 PM.jpeg",
+      "sha256": "3884d97cbccb507b44dd7e4a0ee9bcf3b19bb3f36267b20271d650135fb6e8aa",
+      "image_size": [
+        1600,
+        1200
+      ],
+      "status": "detected",
+      "corners_detected": 63,
+      "detector": "findChessboardCorners",
+      "annotation": "detections\\38_WhatsApp Image 2026-11-06 at 9.46.44 PM.jpg"
+    },
+    {
+      "index": 39,
+      "file": "WhatsApp Image 2026-11-06 at 9.46.45 PM.jpeg",
+      "sha256": "f9d20331b67e59194d074ef977858d08be873d81a856c46d1eb82771ac15b6e0",
+      "image_size": [
+        1600,
+        1200
+      ],
+      "status": "detected",
+      "corners_detected": 63,
+      "detector": "findChessboardCorners",
+      "annotation": "detections\\39_WhatsApp Image 2026-11-06 at 9.46.45 PM.jpg"
+    }
+  ]
+}

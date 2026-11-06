@@ -1,0 +1,93 @@
+{
+  "source": "E:\\Computer_Vision\\Object",
+  "valid_images": 77,
+  "invalid_images": [],
+  "unsupported_files": [],
+  "resolutions": {
+    "2976x3968": 37,
+    "3968x2976": 40
+  },
+  "split_counts": {
+    "validation": 15,
+    "test": 8,
+    "train": 54
+  },
+  "seed": 42,
+  "grouping": "All exact, visual-candidate, and <=2-second capture groups kept together.",
+  "group_sizes": [
+    23,
+    5,
+    4,
+    4,
+    3,
+    3,
+    2,
+    2,
+    2,
+    2,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "exact_file_duplicate_pairs": 0,
+  "exact_decoded_duplicate_pairs": 0,
+  "visual_near_duplicate_candidate_pairs": 63,
+  "burst_candidate_pairs": 20,
+  "total_flagged_pairs": 75,
+  "possible_cross_split_leakage_pairs": 0,
+  "pairs_compared": 2926,
+  "original_hashes_unchanged": true,
+  "similarity_rules": {
+    "phash_63bit_max": 12,
+    "dhash_64bit_max_with_ssim": 10,
+    "dhash_min_ssim": 0.65,
+    "ssim_alone_min": 0.92,
+    "burst_gap_seconds_max": 2.0,
+    "quarter_turns_checked": true,
+    "thumbnail_size": [
+      128,
+      128
+    ]
+  },
+  "limitations": [
+    "Visual candidates are heuristic flags, not automatic duplicate confirmations.",
+    "Different views of the same sponge and capture setting remain correlated across splits.",
+    "No session-independent or unseen-object generalization claim follows from this split."
+  ],
+  "versions": {
+    "python": "3.12.10",
+    "numpy": "2.2.6",
+    "opencv": "4.12.0"
+  },
+  "exif_orientation_counts": {
+    "0": 45,
+    "1": 32
+  },
+  "camera_models": {
+    "itel S667LN\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000": 77
+  }
+}

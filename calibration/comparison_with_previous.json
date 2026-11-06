@@ -1,0 +1,85 @@
+{
+  "previous_report": "E:\\Computer_Vision\\calibration_previous_whatsapp\\calibration_report.json",
+  "current_report": "E:\\Computer_Vision\\calibration\\calibration_report.json",
+  "previous_image_size": [
+    1600,
+    1200
+  ],
+  "current_image_size": [
+    3968,
+    2976
+  ],
+  "linear_resolution_scale": 2.48,
+  "previous_rms_px": 1.199105136093592,
+  "current_rms_px": 2.957892646165041,
+  "current_rms_in_previous_resolution_pixels": 1.1926986476471941,
+  "previous_rms_in_current_resolution_pixels": 2.9737807375121084,
+  "resolution_normalized_change_percent": -0.5342724548131561,
+  "previous_camera_matrix": [
+    [
+      1135.7458590546635,
+      0.0,
+      798.5798677878098
+    ],
+    [
+      0.0,
+      1135.9810639367133,
+      596.8838736606842
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "current_camera_matrix": [
+    [
+      2810.5495515151665,
+      0.0,
+      1980.3893971685284
+    ],
+    [
+      0.0,
+      2811.223867884537,
+      1480.1312594759688
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "current_camera_matrix_scaled_to_previous_resolution": [
+    [
+      1133.286109481922,
+      0.0,
+      798.5441117615035
+    ],
+    [
+      0.0,
+      1133.558011243765,
+      596.8271207564391
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "previous_dist_coeffs": [
+    0.13964769460601567,
+    -0.6509405473344736,
+    0.0011915795671048072,
+    -0.0010810977512387182,
+    0.7610076876680167
+  ],
+  "current_dist_coeffs": [
+    0.13113135871594506,
+    -0.6095668864211725,
+    0.0011283778719986654,
+    -0.0011093890731848973,
+    0.7088976930732236
+  ],
+  "original_source_hashes_unchanged": true,
+  "note": "Resolution normalization is a change of pixel units, not a new calibration or independent accuracy test."
+}

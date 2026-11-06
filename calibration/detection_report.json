@@ -1,0 +1,509 @@
+[
+  {
+    "index": 1,
+    "file": "IMG_20261106_213136_290.jpg",
+    "sha256": "dba7cc0b78e2f6357134ead341c281ff866f46c83b4d3285e39158cb9298b142",
+    "image_size": [
+      3968,
+      2976
+    ],
+    "status": "detected",
+    "corners_detected": 63,
+    "detector": "findChessboardCorners",
+    "annotation": "detections\\01_IMG_20261106_213136_290.jpg"
+  },
+  {
+    "index": 2,
+    "file": "IMG_20261106_213137_593.jpg",
+    "sha256": "caa60fb3c35d23dffc1788416bc6f050cc64e5357681a6668217728396f21a24",
+    "image_size": [
+      3968,
+      2976
+    ],
+    "status": "detected",
+    "corners_detected": 63,
+    "detector": "findChessboardCorners",
+    "annotation": "detections\\02_IMG_20261106_213137_593.jpg"
+  },
+  {
+    "index": 3,
+    "file": "IMG_20261106_213139_510.jpg",
+    "sha256": "792caf57bbf99e49da20835a5cd3cf8ee7f2807004706f92d5a5779a9d04f3af",
+    "image_size": [
+      3968,
+      2976
+    ],
+    "status": "detected",
+    "corners_detected": 63,
+    "detector": "findChessboardCorners",
+    "annotation": "detections\\03_IMG_20261106_213139_510.jpg"
+  },
+  {
+    "index": 4,
+    "file": "IMG_20261106_213141_676.jpg",
+    "sha256": "d7f84995236e19125d78eff1961e47bb20366d5056b52d5357303e5c14415943",
+    "image_size": [
+      3968,
+      2976
+    ],
+    "status": "detected",
+    "corners_detected": 63,
+    "detector": "findChessboardCorners",
+    "annotation": "detections\\04_IMG_20261106_213141_676.jpg"
+  },
+  {
+    "index": 5,
+    "file": "IMG_20261106_213145_170.jpg",
+    "sha256": "cbd9fe3a4f7e058daca8feee8ed5c74a69a93859c2f2b12aa6ba7fa713eb4031",
+    "image_size": [
+      3968,
+      2976
+    ],
+    "status": "detected",
+    "corners_detected": 63,
+    "detector": "findChessboardCorners",
+    "annotation": "detections\\05_IMG_20261106_213145_170.jpg"
+  },
+  {
+    "index": 6,
+    "file": "IMG_20261106_213157_324.jpg",
+    "sha256": "4f98fb33f2963350aaf26e54348064634948921ed861d0c2fd7f0fd871a7a786",
+    "image_size": [
+      3968,
+      2976
+    ],
+    "status": "detected",
+    "corners_detected": 63,
+    "detector": "findChessboardCorners",
+    "annotation": "detections\\06_IMG_20261106_213157_324.jpg"
+  },
+  {
+    "index": 7,
+    "file": "IMG_20261106_213159_960.jpg",
+    "sha256": "9ce2a0b3990fc7a95162db0b1a8d0e42fe02eb31742ffa6b9f8ea3c4cbff3e30",
+    "image_size": [
+      3968,
+      2976
+    ],
+    "status": "detected",
+    "corners_detected": 63,
+    "detector": "findChessboardCorners",
+    "annotation": "detections\\07_IMG_20261106_213159_960.jpg"
+  },
+  {
+    "index": 8,
+    "file": "IMG_20261106_213203_014.jpg",
+    "sha256": "28beb0786717de4788ea970e103f2424415e84e62a9de100d6b897ebeb4a67b0",
+    "image_size": [
+      3968,
+      2976
+    ],
+    "status": "detected",
+    "corners_detected": 63,
+    "detector": "findChessboardCorners",
+    "annotation": "detections\\08_IMG_20261106_213203_014.jpg"
+  },
+  {
+    "index": 9,
+    "file": "IMG_20261106_213207_296.jpg",
+    "sha256": "f06d8d950f26997a6221660d33ec9ea5afab9f9bf5c6e338744b018b4a2df2db",
+    "image_size": [
+      3968,
+      2976
+    ],
+    "status": "detected",
+    "corners_detected": 63,
+    "detector": "findChessboardCorners",
+    "annotation": "detections\\09_IMG_20261106_213207_296.jpg"
+  },
+  {
+    "index": 10,
+    "file": "IMG_20261106_213209_573.jpg",
+    "sha256": "51c5a121291474e72b7f4194f391dacc5b9ab74ea3ad56e7b73f988147f1e845",
+    "image_size": [
+      3968,
+      2976
+    ],
+    "status": "detected",
+    "corners_detected": 63,
+    "detector": "findChessboardCorners",
+    "annotation": "detections\\10_IMG_20261106_213209_573.jpg"
+  },
+  {
+    "index": 11,
+    "file": "IMG_20261106_213213_337.jpg",
+    "sha256": "25f157ce2ee55ac8a6582c96f80d30aeefbfd70e034f42156384e4ab2dc04ee8",
+    "image_size": [
+      3968,
+      2976
+    ],
+    "status": "detected",
+    "corners_detected": 63,
+    "detector": "findChessboardCorners",
+    "annotation": "detections\\11_IMG_20261106_213213_337.jpg"
+  },
+  {
+    "index": 12,
+    "file": "IMG_20261106_213217_299.jpg",
+    "sha256": "30f87df86ba18b867a3d14e44a6989bd54b460dc9cbea45320fd45793862d27f",
+    "image_size": [
+      3968,
+      2976
+    ],
+    "status": "detected",
+    "corners_detected": 63,
+    "detector": "findChessboardCorners",
+    "annotation": "detections\\12_IMG_20261106_213217_299.jpg"
+  },
+  {
+    "index": 13,
+    "file": "IMG_20261106_213220_993.jpg",
+    "sha256": "3ea417241b5b40187e56cf71b2278632bf1b6157a566d5bd197b4a2909f08840",
+    "image_size": [
+      3968,
+      2976
+    ],
+    "status": "detected",
+    "corners_detected": 63,
+    "detector": "findChessboardCorners",
+    "annotation": "detections\\13_IMG_20261106_213220_993.jpg"
+  },
+  {
+    "index": 14,
+    "file": "IMG_20261106_213223_348.jpg",
+    "sha256": "912e7aec0c58f2e87d3f976d7fbe5b355cbb28cadbac13226b246b3f31ad6488",
+    "image_size": [
+      3968,
+      2976
+    ],
+    "status": "detected",
+    "corners_detected": 63,
+    "detector": "findChessboardCorners",
+    "annotation": "detections\\14_IMG_20261106_213223_348.jpg"
+  },
+  {
+    "index": 15,
+    "file": "IMG_20261106_213225_857.jpg",
+    "sha256": "58642bae0959117df18ac9528b9d0df0dd54ff3b84791a58dabb2de1ed44d619",
+    "image_size": [
+      3968,
+      2976
+    ],
+    "status": "detected",
+    "corners_detected": 63,
+    "detector": "findChessboardCorners",
+    "annotation": "detections\\15_IMG_20261106_213225_857.jpg"
+  },
+  {
+    "index": 16,
+    "file": "IMG_20261106_213227_548.jpg",
+    "sha256": "a7298bf95c75324345a15a37b6b3e17a00fa471a445bdf4a5ced36a65d9426b0",
+    "image_size": [
+      3968,
+      2976
+    ],
+    "status": "detected",
+    "corners_detected": 63,
+    "detector": "findChessboardCorners",
+    "annotation": "detections\\16_IMG_20261106_213227_548.jpg"
+  },
+  {
+    "index": 17,
+    "file": "IMG_20261106_213231_160.jpg",
+    "sha256": "13c5b31a039a8926168fd2918055af64e75605587603c4651502b9a71ac6d3c8",
+    "image_size": [
+      3968,
+      2976
+    ],
+    "status": "detected",
+    "corners_detected": 63,
+    "detector": "findChessboardCorners",
+    "annotation": "detections\\17_IMG_20261106_213231_160.jpg"
+  },
+  {
+    "index": 18,
+    "file": "IMG_20261106_213234_139.jpg",
+    "sha256": "538024d0e9c2fb4d86163fc561d4a789f6eba74de00a5ec110fc5c2d77973f57",
+    "image_size": [
+      3968,
+      2976
+    ],
+    "status": "detected",
+    "corners_detected": 63,
+    "detector": "findChessboardCorners",
+    "annotation": "detections\\18_IMG_20261106_213234_139.jpg"
+  },
+  {
+    "index": 19,
+    "file": "IMG_20261106_213241_210.jpg",
+    "sha256": "8aeb46440659b33e3450ade58dc0b77aa45aae139e441521e10af200819e4c03",
+    "image_size": [
+      3968,
+      2976
+    ],
+    "status": "detected",
+    "corners_detected": 63,
+    "detector": "findChessboardCorners",
+    "annotation": "detections\\19_IMG_20261106_213241_210.jpg"
+  },
+  {
+    "index": 20,
+    "file": "IMG_20261106_213248_430.jpg",
+    "sha256": "c1fe705c709805651e73b265124794b8d0385339ec500a1f1b8214326c656485",
+    "image_size": [
+      3968,
+      2976
+    ],
+    "status": "detected",
+    "corners_detected": 63,
+    "detector": "findChessboardCorners",
+    "annotation": "detections\\20_IMG_20261106_213248_430.jpg"
+  },
+  {
+    "index": 21,
+    "file": "IMG_20261106_213249_444.jpg",
+    "sha256": "c64393f556c550a3cd7f7b08cb193142a4dbab8cf5ef147b6f73fceee5bd0ed6",
+    "image_size": [
+      3968,
+      2976
+    ],
+    "status": "detected",
+    "corners_detected": 63,
+    "detector": "findChessboardCorners",
+    "annotation": "detections\\21_IMG_20261106_213249_444.jpg"
+  },
+  {
+    "index": 22,
+    "file": "IMG_20261106_213251_409.jpg",
+    "sha256": "64fb3c2365a281cce33fb6f893ad1862adef1217b3411e2f33a1b055e9f285a7",
+    "image_size": [
+      3968,
+      2976
+    ],
+    "status": "detected",
+    "corners_detected": 63,
+    "detector": "findChessboardCorners",
+    "annotation": "detections\\22_IMG_20261106_213251_409.jpg"
+  },
+  {
+    "index": 23,
+    "file": "IMG_20261106_213254_757.jpg",
+    "sha256": "f7d88a0c2563ba2acd5580a5a9289cbd1e012813a501ab73e56c51e6742f86f4",
+    "image_size": [
+      3968,
+      2976
+    ],
+    "status": "detected",
+    "corners_detected": 63,
+    "detector": "findChessboardCorners",
+    "annotation": "detections\\23_IMG_20261106_213254_757.jpg"
+  },
+  {
+    "index": 24,
+    "file": "IMG_20261106_213302_362.jpg",
+    "sha256": "28e1c549da0c3a4536f9d76268a1a781ea80dd9b7f3c9f5c4db02e4b981259aa",
+    "image_size": [
+      3968,
+      2976
+    ],
+    "status": "detected",
+    "corners_detected": 63,
+    "detector": "findChessboardCorners",
+    "annotation": "detections\\24_IMG_20261106_213302_362.jpg"
+  },
+  {
+    "index": 25,
+    "file": "IMG_20261106_213303_607.jpg",
+    "sha256": "82881137fe3a0061324a60a63e6c96f87a54b80e834e0028ffff7acfd653763a",
+    "image_size": [
+      3968,
+      2976
+    ],
+    "status": "detected",
+    "corners_detected": 63,
+    "detector": "findChessboardCorners",
+    "annotation": "detections\\25_IMG_20261106_213303_607.jpg"
+  },
+  {
+    "index": 26,
+    "file": "IMG_20261106_213307_639.jpg",
+    "sha256": "ba13ff32877f717180900a984194a17bb6fb9dd7ebb8e518f225c388b095845a",
+    "image_size": [
+      3968,
+      2976
+    ],
+    "status": "detected",
+    "corners_detected": 63,
+    "detector": "findChessboardCorners",
+    "annotation": "detections\\26_IMG_20261106_213307_639.jpg"
+  },
+  {
+    "index": 27,
+    "file": "IMG_20261106_213401_080.jpg",
+    "sha256": "7cebdbcaa24e6ce8435cb54509c58eddec8b78bdc8713c82616a0615837cbcca",
+    "image_size": [
+      3968,
+      2976
+    ],
+    "status": "detected",
+    "corners_detected": 63,
+    "detector": "findChessboardCorners",
+    "annotation": "detections\\27_IMG_20261106_213401_080.jpg"
+  },
+  {
+    "index": 28,
+    "file": "IMG_20261106_213405_718.jpg",
+    "sha256": "4c37b7fce1dd239c3cc714da490310a64641b0a53a8d11305ab9bb5812732371",
+    "image_size": [
+      3968,
+      2976
+    ],
+    "status": "detected",
+    "corners_detected": 63,
+    "detector": "findChessboardCorners",
+    "annotation": "detections\\28_IMG_20261106_213405_718.jpg"
+  },
+  {
+    "index": 29,
+    "file": "IMG_20261106_213408_087.jpg",
+    "sha256": "0e962a2bfea62f95b92600861c8442caf9ec6b17b679461ae64bdf343593816a",
+    "image_size": [
+      3968,
+      2976
+    ],
+    "status": "detected",
+    "corners_detected": 63,
+    "detector": "findChessboardCorners",
+    "annotation": "detections\\29_IMG_20261106_213408_087.jpg"
+  },
+  {
+    "index": 30,
+    "file": "IMG_20261106_213409_999.jpg",
+    "sha256": "db3091e7786a830d1d4ec464d943603e8441e820deba58e1dcf3b22fcc773641",
+    "image_size": [
+      3968,
+      2976
+    ],
+    "status": "detected",
+    "corners_detected": 63,
+    "detector": "findChessboardCorners",
+    "annotation": "detections\\30_IMG_20261106_213409_999.jpg"
+  },
+  {
+    "index": 31,
+    "file": "IMG_20261106_213418_361.jpg",
+    "sha256": "aaaccb54281781a174e3825c86169d641dcc00ac3fdd4b0f2d1b6ef780b83d48",
+    "image_size": [
+      3968,
+      2976
+    ],
+    "status": "detected",
+    "corners_detected": 63,
+    "detector": "findChessboardCorners",
+    "annotation": "detections\\31_IMG_20261106_213418_361.jpg"
+  },
+  {
+    "index": 32,
+    "file": "IMG_20261106_213420_747.jpg",
+    "sha256": "7a218a56d0fde1d5cda2cefa45d003a819020c01e729deb8b9977802e45a6e37",
+    "image_size": [
+      3968,
+      2976
+    ],
+    "status": "detected",
+    "corners_detected": 63,
+    "detector": "findChessboardCorners",
+    "annotation": "detections\\32_IMG_20261106_213420_747.jpg"
+  },
+  {
+    "index": 33,
+    "file": "IMG_20261106_213423_801.jpg",
+    "sha256": "70d7e1c122502de6d66af345e93cf31bca4660f7d86867a55d248adc6952ecb2",
+    "image_size": [
+      3968,
+      2976
+    ],
+    "status": "detected",
+    "corners_detected": 63,
+    "detector": "findChessboardCorners",
+    "annotation": "detections\\33_IMG_20261106_213423_801.jpg"
+  },
+  {
+    "index": 34,
+    "file": "IMG_20261106_213429_261.jpg",
+    "sha256": "ca67199dbff732e51ced561b94200325bc932e9a77a1846299078d7bcf24160b",
+    "image_size": [
+      3968,
+      2976
+    ],
+    "status": "detected",
+    "corners_detected": 63,
+    "detector": "findChessboardCorners",
+    "annotation": "detections\\34_IMG_20261106_213429_261.jpg"
+  },
+  {
+    "index": 35,
+    "file": "IMG_20261106_213430_996.jpg",
+    "sha256": "9b745b146ced2cd3af420bb1a1c2bdc7b4eea7b8c1e372721ed9b6be0ee4a4db",
+    "image_size": [
+      3968,
+      2976
+    ],
+    "status": "detected",
+    "corners_detected": 63,
+    "detector": "findChessboardCorners",
+    "annotation": "detections\\35_IMG_20261106_213430_996.jpg"
+  },
+  {
+    "index": 36,
+    "file": "IMG_20261106_213433_334.jpg",
+    "sha256": "bfc9c70e1c5ec485646692ec0ce6cb0a5e979991c22caf79b7c9ddccd89e2455",
+    "image_size": [
+      3968,
+      2976
+    ],
+    "status": "detected",
+    "corners_detected": 63,
+    "detector": "findChessboardCorners",
+    "annotation": "detections\\36_IMG_20261106_213433_334.jpg"
+  },
+  {
+    "index": 37,
+    "file": "IMG_20261106_213436_499.jpg",
+    "sha256": "ab7a28f9b82e1b40355fc47fa71703113a108b4e2fb5df9dfa1776118b4272c5",
+    "image_size": [
+      3968,
+      2976
+    ],
+    "status": "detected",
+    "corners_detected": 63,
+    "detector": "findChessboardCorners",
+    "annotation": "detections\\37_IMG_20261106_213436_499.jpg"
+  },
+  {
+    "index": 38,
+    "file": "IMG_20261106_213439_630.jpg",
+    "sha256": "d5d6056968b0ac2e251658d912a90ccc6705d554334f6ad13f45ddf98792d132",
+    "image_size": [
+      3968,
+      2976
+    ],
+    "status": "detected",
+    "corners_detected": 63,
+    "detector": "findChessboardCorners",
+    "annotation": "detections\\38_IMG_20261106_213439_630.jpg"
+  },
+  {
+    "index": 39,
+    "file": "IMG_20261106_213442_310.jpg",
+    "sha256": "11c8b46d0052c4788d73b5fba6cf7d59021c0684d6611a973a033fb005e1160f",
+    "image_size": [
+      3968,
+      2976
+    ],
+    "status": "detected",
+    "corners_detected": 63,
+    "detector": "findChessboardCorners",
+    "annotation": "detections\\39_IMG_20261106_213442_310.jpg"
+  }
+]

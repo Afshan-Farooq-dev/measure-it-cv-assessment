@@ -1,0 +1,51 @@
+{
+  "source_directory": "E:\\Computer_Vision\\Object",
+  "manifest": "E:\\Computer_Vision\\dataset\\split_manifest.csv",
+  "calibration_file": "E:\\Computer_Vision\\calibration\\camera_params.npz",
+  "calibration_sha256": "05edc2c8f151f115584ab3a377dec215eea33affd1f3f86eb9d7c122926088d0",
+  "calibration_image_size": [
+    3968,
+    2976
+  ],
+  "camera_matrix": [
+    [
+      2810.5495515151665,
+      0.0,
+      1980.3893971685284
+    ],
+    [
+      0.0,
+      2811.223867884537,
+      1480.1312594759688
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "dist_coeffs": [
+    0.13113135871594506,
+    -0.6095668864211725,
+    0.0011283778719986654,
+    -0.0011093890731848973,
+    0.7088976930732236
+  ],
+  "encoded_pixel_orientation": true,
+  "future_undistortion": {
+    "script": "E:\\Computer_Vision\\undistort.py",
+    "alpha": 1.0,
+    "crop": false,
+    "portrait_policy": "Resolve rotation direction/camera coordinates before applying calibration; do not use --allow-resize to force portrait inputs.",
+    "output_directory": "E:\\Computer_Vision\\dataset\\undistorted",
+    "annotation_coordinate_space": "undistorted pixels; preserve original split and record the output camera matrix"
+  },
+  "green_top_surface_mm": {
+    "length": 93,
+    "width": 74,
+    "source": "user-measured"
+  },
+  "images_undistorted": false,
+  "annotations_created": false,
+  "training_started": false
+}

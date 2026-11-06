@@ -1,0 +1,22 @@
+Inner corners: 7 x 9 (63 points/view)
+Square size: 24 mm; image size: 1600 x 1200
+Detected: 39/39; not detected: 0; unreadable: 0
+All 39 detections used; no outlier removal.
+OpenCV RMS reprojection error: 1.199105 px
+Independently calculated RMS: 1.199105 px
+Mean Euclidean reprojection error: 0.938503 px
+Per-image RMS range: 0.350064 to 2.301904 px
+Camera matrix (pixels):
+[[1.13574586e+03 0.00000000e+00 7.98579868e+02]
+ [0.00000000e+00 1.13598106e+03 5.96883874e+02]
+ [0.00000000e+00 0.00000000e+00 1.00000000e+00]]
+Distortion [k1, k2, p1, p2, k3]:
+[ 0.13964769 -0.65094055  0.00119158 -0.0010811   0.76100769]
+Example source: WhatsApp Image 2026-11-06 at 9.46.36 PM (1).jpeg
+Parameters: E:\Computer_Vision\calibration\camera_params.npz
+
+Limitations:
+- Reprojection error is an in-sample pixel fit, not an independent measurement-accuracy test.
+- Reuse only with the same lens, zoom, focus regime, crop, and image processing/orientation.
+- The supplied photos show creases in the paper; nonplanarity violates the planar-board assumption.
+- These are 1600x1200 WhatsApp-named JPEGs; original camera-resolution intrinsics are not established.

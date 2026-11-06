@@ -1,0 +1,12 @@
+# Normalize source/documentation while preserving recorded result and manifest bytes.
+*.py text eol=lf
+*.md text eol=lf
+.gitignore text eol=lf
+.gitattributes text eol=lf
+requirements.txt text eol=lf
+/calibration/** -text
+/calibration_previous_whatsapp/** -text
+/calibration_originals/** -text
+/dataset/*.csv -text
+/dataset/*.json -text
+*.npz binary
