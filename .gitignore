@@ -123,3 +123,6 @@ _netrc
 /.work/
 /tmp/
 /AI_CV_Assessment*.pdf
+
+# Generated undistortion and draft-annotation output.
+/annotations/
