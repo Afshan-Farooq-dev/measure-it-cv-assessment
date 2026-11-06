@@ -28,5 +28,5 @@ This plan was written after the initial calibration and dataset-preparation work
 - Calibration is complete, but the checkerboard report notes board creases; flatness has not been independently verified.
 - There are 77, not 78, valid object photos. The 54/15/8 split is the closest whole-image approximation to 70/20/10, not an exact ratio.
 - The current split keeps related candidates apart across splits, but its validation and test sets contain only singleton groups. A proposal that gives both evaluation sets related groups is ready for review and has not been applied.
-- Object masks, a same-plane measurement reference, model training, inference, and accuracy experiments have not started.
+- Draft masks, U-Net training, checkerboard-reference inference, and a 14-photo accuracy run are complete. The error target was not met and only 12 of 14 photos produced measurements.
 - The existing Git history began with completed work rather than a plan and split manifest. That ordering cannot be corrected without rewriting history, so it remains a documented assessment risk.

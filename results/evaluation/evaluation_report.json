@@ -1,0 +1,136 @@
+{
+  "test_segmentation": {
+    "test_images": 8,
+    "device": "cpu",
+    "threshold": 0.5,
+    "iou": 0.969210576087311,
+    "precision": 0.9781823998440538,
+    "recall": 0.9907740313208329,
+    "dice": 0.9842184187246865,
+    "mAP_50": 1.0,
+    "mAP_50_95": 0.9550892857142858,
+    "per_image": [
+      {
+        "filename": "IMG_20261106_225008_482.png",
+        "iou": 0.9883185840707964,
+        "precision": 0.9948334224122573,
+        "recall": 0.9934175413627468,
+        "dice": 0.9941249777461278,
+        "confidence": 0.9547998309135437
+      },
+      {
+        "filename": "IMG_20261106_225018_097.png",
+        "iou": 0.9908334747920556,
+        "precision": 0.9967554644808743,
+        "recall": 0.9940395095367848,
+        "dice": 0.9953956343792633,
+        "confidence": 0.9557308554649353
+      },
+      {
+        "filename": "IMG_20261106_225043_004.png",
+        "iou": 0.9887875616684109,
+        "precision": 0.9917528864897286,
+        "recall": 0.996985227615315,
+        "dice": 0.9943621739457266,
+        "confidence": 0.9500975608825684
+      },
+      {
+        "filename": "IMG_20261106_225045_467.png",
+        "iou": 0.9845460399227302,
+        "precision": 0.9909267660401815,
+        "recall": 0.9935022742040286,
+        "dice": 0.9922128487994809,
+        "confidence": 0.9512290358543396
+      },
+      {
+        "filename": "IMG_20261106_225108_039.png",
+        "iou": 0.9239899814875313,
+        "precision": 0.9255017452006981,
+        "recall": 0.9982352941176471,
+        "dice": 0.9604935476567806,
+        "confidence": 0.9463272094726562
+      },
+      {
+        "filename": "IMG_20261106_225110_342.png",
+        "iou": 0.9790361753802889,
+        "precision": 0.9904306220095693,
+        "recall": 0.9883855981416957,
+        "dice": 0.9894070533522801,
+        "confidence": 0.9505432844161987
+      },
+      {
+        "filename": "IMG_20261106_225131_546.png",
+        "iou": 0.9522268454307289,
+        "precision": 0.9523736128236745,
+        "recall": 0.9998381877022654,
+        "dice": 0.975528891695611,
+        "confidence": 0.9592649340629578
+      },
+      {
+        "filename": "IMG_20261106_225250_500.png",
+        "iou": 0.9459459459459459,
+        "precision": 0.982884679295447,
+        "recall": 0.9617886178861789,
+        "dice": 0.9722222222222222,
+        "confidence": 0.962921679019928
+      }
+    ],
+    "mAP_note": "Ranked AP over one predicted mask and one target mask per image; confidence is mean probability inside the predicted mask."
+  },
+  "measurement_undistorted": {
+    "instances": 2,
+    "ground_truth_mm": [
+      93.0,
+      74.0
+    ],
+    "absolute_errors_mm": [
+      10.804695129394531,
+      5.3024749755859375,
+      5.24383544921875,
+      3.97802734375
+    ],
+    "mae_mm": 6.332258224487305,
+    "median_absolute_error_mm": 5.273155212402344,
+    "worst_absolute_error_mm": 10.804695129394531,
+    "mean_percentage_error": 7.449425960896632
+  },
+  "measurement_raw": {
+    "instances": 2,
+    "ground_truth_mm": [
+      93.0,
+      74.0
+    ],
+    "absolute_errors_mm": [
+      12.36883544921875,
+      3.4345855712890625,
+      3.766204833984375,
+      2.445587158203125
+    ],
+    "mae_mm": 5.503803253173828,
+    "median_absolute_error_mm": 3.6003952026367188,
+    "worst_absolute_error_mm": 12.36883544921875,
+    "mean_percentage_error": 6.323921261260551
+  },
+  "timing_seconds": {
+    "runs": [
+      22.6562918999698,
+      17.8878177000443,
+      18.4559677999932,
+      16.9903595999349,
+      13.7241551999468
+    ],
+    "median": 17.8878177000443,
+    "spread_min_max": [
+      13.7241551999468,
+      22.6562918999698
+    ]
+  },
+  "limitations": [
+    "Only two measurement instances are available; this does not meet the required 10+ manual checks.",
+    "Test masks are draft masks, not independently hand-labelled ground truth."
+  ],
+  "raw_vs_undistorted": {
+    "mae_difference_mm_raw_minus_undistorted": -0.8284549713134766,
+    "note": "Comparison uses the same two images and only assesses these scenes."
+  }
+}

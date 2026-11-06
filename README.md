@@ -1,6 +1,6 @@
 # Measure It CV assessment
 
-This repository contains the completed calibration and dataset-preparation stages for the xis.ai Measure It assessment. Annotation, model training, and measurement inference have not started.
+This repository contains calibration, draft segmentation, U-Net evaluation, and checkerboard-reference measurement work for the xis.ai Measure It assessment.
 
 ## Current evidence
 
@@ -9,6 +9,8 @@ This repository contains the completed calibration and dataset-preparation stage
 - Object: green-yellow sponge. Target: green top surface only. Ground truth: 93 mm x 74 mm.
 - Dataset: 77 valid source images (40 landscape, 37 portrait). Current seed-42 split: 54 train / 15 validation / 8 test.
 - The previous WhatsApp-image calibration is retained for comparison; its recorded RMS is 1.199105 px. Lower RMS alone does not make it the preferred calibration because those images were compressed.
+- Fixed 8-image segmentation test: IoU 0.9692, precision 0.9782, recall 0.9908, mAP50 1.0000, mAP50:95 0.9551, evaluated against draft masks.
+- New 14-photo checkerboard measurement run: 12 successes, 2 refusals; undistorted MAE 5.059 mm (median 4.874 mm, worst 8.406 mm). Raw MAE was 4.679 mm for these same scenes; this small result does not establish a general undistortion benefit.
 
 Source photos and generated images are ignored by Git. Calibration and dataset reports contain their hashes. `calibration/calibration_report.json` and `dataset/inventory.json` are the authoritative inventories; similarly named legacy inventories are retained as historical evidence.
 
@@ -51,7 +53,7 @@ python propose_split.py --output runs\split-proposal --seed 42
 
 ## Remaining assessment work
 
-The project is not yet assessment-complete. It still needs undistorted object images, masks, a permitted segmentation model, held-out test metrics, reference-based pixel-to-mm measurement, 10+ manual accuracy checks, a robustness test, timing, a pull request, and a Loom recording. The assessment's required plan-and-split-before-code commit order was not met by the existing history and is recorded in [docs/DEFINITION_OF_DONE.md](docs/DEFINITION_OF_DONE.md).
+The project is not yet assessment-complete. The 3 mm measurement target was missed; only 12 successful manual checks exist, labels are draft masks, stress severity is not quantified, the checkpoint (`0b354b017fe03d97310f60d6ff0a63fcb0a34af312775c9cb56a3582319081bb`) is local-only with no reproducible download link, and PR/Loom submission items remain. The assessment's required plan-and-split-before-code commit order was not met by the existing history and is recorded in [docs/DEFINITION_OF_DONE.md](docs/DEFINITION_OF_DONE.md).
 
 ## Hardware
 

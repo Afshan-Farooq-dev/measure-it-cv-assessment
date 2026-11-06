@@ -14,6 +14,7 @@ from generate_object_masks import undistort_preserving_orientation
 from inspect_images import ROOT, read_image, write_image
 from undistort import load_parameters
 
+_MODELS = {}
 
 def calibration_geometry(parameters):
     with np.load(parameters, allow_pickle=False) as data:
@@ -35,10 +36,14 @@ def letterbox_rgb(image):
 
 
 def run_unet(image, checkpoint, device):
-    model = UNet().to(device)
-    saved = torch.load(checkpoint, map_location=device, weights_only=True)
-    model.load_state_dict(saved["model_state"])
-    model.eval()
+    key = (str(checkpoint.resolve()), str(device))
+    if key not in _MODELS:
+        model = UNet().to(device)
+        saved = torch.load(checkpoint, map_location=device, weights_only=True)
+        model.load_state_dict(saved["model_state"])
+        model.eval()
+        _MODELS[key] = model
+    model = _MODELS[key]
     prepared, (left, top, scaled_width, scaled_height) = letterbox_rgb(image)
     tensor = torch.from_numpy(prepared.astype(np.float32).transpose(2, 0, 1)[None] / 255.0).to(device)
     with torch.no_grad():
@@ -63,7 +68,7 @@ def checkerboard_homography(image, pattern, square_size_mm):
     return homography, corners, detector, residual_mm
 
 
-def measure_surface(image, mask, probability, homography, checkerboard_corners):
+def measure_surface(image, mask, probability, homography, checkerboard_corners, min_confidence=.60):
     contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     if not contours:
         raise ValueError("missing_sponge_segmentation")
@@ -84,7 +89,7 @@ def measure_surface(image, mask, probability, homography, checkerboard_corners):
     if overlap > .05:
         raise ValueError("sponge_segmentation_overlaps_checkerboard_reference")
     confidence = float(probability[selected > 0].mean())
-    if confidence < .60:
+    if confidence < min_confidence:
         raise ValueError("low_segmentation_confidence")
     hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
     green_fraction = float(np.mean(((hsv[:, :, 0] >= 35) & (hsv[:, :, 0] <= 105) & (hsv[:, :, 1] >= 35) & (hsv[:, :, 2] >= 15))[selected > 0]))
@@ -119,6 +124,8 @@ def main():
     parser.add_argument("--checkpoint", type=Path, default=ROOT / "best_model.pth")
     parser.add_argument("--params", type=Path, default=ROOT / "calibration/camera_params.npz")
     parser.add_argument("--output", type=Path, required=True, help="New annotated PNG; a JSON sidecar is also created")
+    parser.add_argument("--skip-undistort", action="store_true", help="Evaluation only: measure encoded pixels without calibration undistortion")
+    parser.add_argument("--min-confidence", type=float, default=.60, help="Reject if mean predicted sponge probability is below this value")
     args = parser.parse_args()
     metadata = args.output.with_suffix(args.output.suffix + ".json")
     if args.output.exists() or metadata.exists(): parser.error("Output already exists; choose a new filename.")
@@ -127,14 +134,19 @@ def main():
     try:
         matrix, distortion, calibration_size = load_parameters(args.params)
         pattern, square_size_mm = calibration_geometry(args.params)
-        undistorted, orientation = undistort_preserving_orientation(source, matrix, distortion, calibration_size)
+        if args.skip_undistort:
+            if (source.shape[1], source.shape[0]) not in (calibration_size, calibration_size[::-1]):
+                raise ValueError("Raw evaluation image has an unsupported size.")
+            undistorted, orientation = source, "not_applied_raw_evaluation"
+        else:
+            undistorted, orientation = undistort_preserving_orientation(source, matrix, distortion, calibration_size)
         homography, corners, detector, reference_residual_mm = checkerboard_homography(undistorted, pattern, square_size_mm)
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         probability, mask = run_unet(undistorted, args.checkpoint, device)
-        contour, rectangle, width_mm, height_mm, confidence = measure_surface(undistorted, mask, probability, homography, corners)
+        contour, rectangle, width_mm, height_mm, confidence = measure_surface(undistorted, mask, probability, homography, corners, args.min_confidence)
         outcome = {"status": "measured", "width_mm": width_mm, "height_mm": height_mm, "segmentation_confidence": confidence,
                    "reference_status": "detected", "reference": {"pattern_inner_corners": list(pattern), "square_size_mm": square_size_mm, "detector": detector, "homography_residual_mm": reference_residual_mm},
-                   "orientation_handling": orientation, "device": str(device), "method": "checkerboard-plane homography"}
+                   "orientation_handling": orientation, "device": str(device), "minimum_confidence": args.min_confidence, "method": "checkerboard-plane homography"}
         output = annotate(undistorted, corners, contour, rectangle, width_mm, height_mm, confidence)
     except (OSError, ValueError, RuntimeError, cv2.error) as exc:
         outcome = {"status": "rejected", "reason": str(exc), "measurement": None,
