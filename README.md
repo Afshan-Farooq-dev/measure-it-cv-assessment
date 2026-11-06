@@ -31,7 +31,7 @@ Use a new output directory for every run. The scripts refuse to replace an exist
 python inspect_images.py --images E:\Computer_Vision\Object --output runs\object-inspection
 
 # Recalibrate without changing the saved evidence
-python calibrate.py --images E:\Computer_Vision\Callibration_Img\Callibrate --square-size-mm 24 --pattern-cols 7 --pattern-rows 9 --output runs\calibration-run
+python calibrate.py --images E:\Computer_Vision\Callibration_Img\Callibrate --pattern 7 9 --square-size-mm 24 --output runs\calibration-run
 
 # Compare saved reports only; no source photos are required
 python compare_calibrations.py
@@ -41,6 +41,9 @@ python prepare_dataset.py --images E:\Computer_Vision\Object --params calibratio
 
 # Produce, but do not apply, a group-aware split proposal
 python propose_split.py --output runs\split-proposal --seed 42
+
+# Measure a new photo only when the 24 mm checkerboard is fully visible and coplanar
+python measure_sponge.py "E:\path\to\photo.jpg" --checkpoint best_model.pth --params calibration\camera_params.npz --output outputs\measurement.png
 ```
 
 ## Repository layout
