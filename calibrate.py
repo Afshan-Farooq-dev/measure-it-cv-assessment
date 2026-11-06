@@ -13,6 +13,7 @@ import numpy as np
 from calibration_utils import detect_corners, object_grid, reprojection_metrics
 from inspect_images import ROOT, image_paths, read_image, write_image
 from undistort import comparison_image, load_parameters, undistort_image
+from output_utils import new_output_directory
 
 
 def collect_detections(paths, pattern, output):
@@ -51,6 +52,11 @@ def collect_detections(paths, pattern, output):
 
 
 def run_calibration(images, output, pattern, square_size_mm):
+    with new_output_directory(output, [images]) as staging:
+        return _calibrate(images, staging, pattern, square_size_mm, output.resolve())
+
+
+def _calibrate(images, output, pattern, square_size_mm, published_output):
     grid = object_grid(pattern, square_size_mm)
     paths = image_paths(images)
     if not paths:
@@ -138,7 +144,7 @@ def run_calibration(images, output, pattern, square_size_mm):
         f"Camera matrix (pixels):\n{np.array2string(matrix, precision=8)}\n"
         f"Distortion [k1, k2, p1, p2, k3]:\n{np.array2string(distortion.ravel(), precision=8)}\n"
         f"Example source: {example_path.name}\n"
-        f"Parameters: {params_path}\n\nLimitations:\n" + "\n".join(f"- {w}" for w in warnings) + "\n"
+        f"Parameters: {published_output / 'camera_params.npz'}\n\nLimitations:\n" + "\n".join(f"- {w}" for w in warnings) + "\n"
     )
     (output / "results.txt").write_text(summary, encoding="utf-8")
     print("\n" + summary, flush=True)
@@ -148,25 +154,12 @@ def run_calibration(images, output, pattern, square_size_mm):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--images", type=Path, default=ROOT / "Callibration_Img/Callibrate")
-    parser.add_argument("--output", type=Path, default=ROOT / "calibration")
-    parser.add_argument("--archive-existing", type=Path, help="Preserve the entire existing output in a new sibling directory")
+    parser.add_argument("--output", type=Path, required=True, help="A new run directory; existing calibration is never replaced")
     # Deliberately require the visually inspected pattern; do not guess a default.
     parser.add_argument("--pattern", type=int, nargs=2, required=True, metavar=("COLS", "ROWS"))
     parser.add_argument("--square-size-mm", type=float, required=True)
     args = parser.parse_args()
     try:
-        if args.archive_existing is not None:
-            current = args.output.resolve()
-            archive = args.archive_existing.resolve()
-            source = args.images.resolve()
-            if archive.parent != current.parent or archive == current:
-                raise ValueError("Archive must be a distinct sibling of the output directory.")
-            if archive.exists() or not current.is_dir():
-                raise ValueError("Archive must not exist, and the current output must be a directory.")
-            if source == current or current in source.parents:
-                raise ValueError("Cannot archive an output directory containing the source images.")
-            current.rename(archive)
-            print(f"Previous calibration preserved at: {archive}", flush=True)
         run_calibration(args.images, args.output, tuple(args.pattern), args.square_size_mm)
     except (ValueError, OSError, cv2.error) as exc:
         parser.exit(1, f"Calibration failed: {exc}\n")

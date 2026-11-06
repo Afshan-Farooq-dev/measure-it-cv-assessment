@@ -8,12 +8,14 @@ from pathlib import Path
 import cv2
 import numpy as np
 
+from output_utils import new_output_directory
+
 ROOT = Path(__file__).resolve().parent
 IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".bmp", ".tif", ".tiff"}
 
 
 def image_paths(directory: Path) -> list[Path]:
-    return sorted(p for p in directory.iterdir() if p.suffix.lower() in IMAGE_EXTENSIONS)
+    return sorted(p for p in directory.iterdir() if p.is_file() and p.suffix.lower() in IMAGE_EXTENSIONS)
 
 
 def read_image(path: Path) -> np.ndarray:
@@ -31,6 +33,11 @@ def write_image(path: Path, image: np.ndarray) -> None:
 
 
 def inspect_images(directory: Path, output: Path) -> None:
+    with new_output_directory(output, [directory]) as staging:
+        _inspect_images(directory, staging)
+
+
+def _inspect_images(directory: Path, output: Path) -> None:
     paths = image_paths(directory)
     if not paths:
         raise SystemExit("No calibration images found.")
@@ -56,7 +63,7 @@ def inspect_images(directory: Path, output: Path) -> None:
         tiles.append(np.full_like(tiles[0], 245))
     sheet = np.vstack([np.hstack(tiles[i:i + 6]) for i in range(0, len(tiles), 6)])
     write_image(output / "contact_sheet.jpg", sheet)
-    (output / "image_inventory.json").write_text(json.dumps(inventory, indent=2), encoding="utf-8")
+    (output / "inventory.json").write_text(json.dumps(inventory, indent=2), encoding="utf-8")
     sizes = Counter((r.get("width"), r.get("height")) for r in inventory)
     print(f"Images: {len(paths)}; sizes (width, height): {dict(sizes)}")
     print(f"Contact sheet: {output / 'contact_sheet.jpg'}")
@@ -65,9 +72,12 @@ def inspect_images(directory: Path, output: Path) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--images", type=Path, default=ROOT / "Callibration_Img/Callibrate")
-    parser.add_argument("--output", type=Path, default=ROOT / "calibration")
+    parser.add_argument("--output", type=Path, required=True, help="A new inspection directory")
     args = parser.parse_args()
-    inspect_images(args.images, args.output)
+    try:
+        inspect_images(args.images, args.output)
+    except (OSError, ValueError, cv2.error) as exc:
+        parser.exit(1, f"Inspection failed: {exc}\n")
 
 
 if __name__ == "__main__":
