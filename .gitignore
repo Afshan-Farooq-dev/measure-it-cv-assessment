@@ -126,3 +126,5 @@ _netrc
 
 # Generated undistortion and draft-annotation output.
 /annotations/
+/annotations_refined/
+/annotations_refined_v2/
