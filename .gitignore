@@ -118,3 +118,8 @@ _netrc
 .pypirc
 .npmrc
 .git-credentials
+
+# Local review runs and the supplied assessment brief.
+/.work/
+/tmp/
+/AI_CV_Assessment*.pdf
