@@ -1,0 +1,19 @@
+{
+  "status": "measured",
+  "width_mm": 103.80469512939453,
+  "height_mm": 79.30247497558594,
+  "segmentation_confidence": 0.9205851554870605,
+  "reference_status": "detected",
+  "reference": {
+    "pattern_inner_corners": [
+      7,
+      9
+    ],
+    "square_size_mm": 24.0,
+    "detector": "findChessboardCorners",
+    "homography_residual_mm": 0.14528119564056396
+  },
+  "orientation_handling": "portrait_cw_then_restore",
+  "device": "cpu",
+  "method": "checkerboard-plane homography"
+}
