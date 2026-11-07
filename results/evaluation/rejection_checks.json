@@ -1,0 +1,18 @@
+{
+  "missing_reference": {
+    "input": "Object/IMG_20261106_225045_467.jpg",
+    "status": "rejected",
+    "reason": "missing_checkerboard_reference"
+  },
+  "missing_object": {
+    "input": "one calibration-board image",
+    "status": "rejected",
+    "reason": "segmentation_touches_frame_edge"
+  },
+  "low_confidence": {
+    "input": "measurement_photo.jpg",
+    "minimum_confidence": 0.99,
+    "status": "rejected",
+    "reason": "low_segmentation_confidence"
+  }
+}

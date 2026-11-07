@@ -1,0 +1,41 @@
+{
+  "images_discovered": [
+    "IMG_20261107_035059_432.jpg",
+    "IMG_20261107_035106_407.jpg",
+    "IMG_20261107_035113_711.jpg",
+    "IMG_20261107_035115_970.jpg",
+    "IMG_20261107_035122_518.jpg",
+    "IMG_20261107_035131_539.jpg",
+    "IMG_20261107_035138_981.jpg",
+    "IMG_20261107_035153_638.jpg",
+    "IMG_20261107_035206_049.jpg",
+    "IMG_20261107_035209_889.jpg",
+    "IMG_20261107_035223_380.jpg",
+    "IMG_20261107_035224_160.jpg",
+    "IMG_20261107_035232_624.jpg",
+    "IMG_20261107_035235_172.jpg"
+  ],
+  "ground_truth_mm": {
+    "long": 93,
+    "short": 74
+  },
+  "undistorted": {
+    "successful": 12,
+    "refused": 2,
+    "mae_mm": 5.058620452880859,
+    "median_mae_mm": 4.874387741088867,
+    "worst_mae_mm": 8.405952453613281
+  },
+  "raw": {
+    "successful": 12,
+    "refused": 2,
+    "mae_mm": 4.679186503092448,
+    "median_mae_mm": 4.814584732055664,
+    "worst_mae_mm": 8.967788696289062
+  },
+  "raw_vs_undistorted_mae_difference_mm": -0.37943394978841116,
+  "hardware": {
+    "device": "cpu"
+  },
+  "note": "All rows, including refusals, are retained in measurement_results.csv."
+}

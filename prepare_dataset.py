@@ -7,15 +7,19 @@ import json
 import platform
 import random
 import re
+import warnings
 from collections import Counter
 from datetime import datetime
 from pathlib import Path
 
 import cv2
 import numpy as np
+import PIL
+from PIL import Image
 
 from inspect_images import ROOT, IMAGE_EXTENSIONS, read_image, write_image
 from undistort import load_parameters
+from output_utils import new_output_directory
 
 
 def save_csv(path, rows, fields):
@@ -85,6 +89,29 @@ def contact_pages(records, previews, output):
         write_image(output / f"contact_sheet_{start // 20 + 1:02d}.jpg", sheet)
 
 
+def read_metadata(path):
+    """Keep usable pixels even if EXIF is absent or damaged; record the problem."""
+    metadata = {"exif_orientation": "unknown", "camera_make": "unknown", "camera_model": "unknown"}
+    try:
+        with warnings.catch_warnings(record=True) as notices:
+            warnings.simplefilter("always")
+            with Image.open(path) as image:
+                exif = image.getexif()
+                metadata.update(
+                    exif_orientation=exif.get(274, "absent"),
+                    camera_make=str(exif.get(271, "absent")).strip("\x00 "),
+                    camera_model=str(exif.get(272, "absent")).strip("\x00 "),
+                )
+        problems = [str(notice.message) for notice in notices]
+        if metadata["exif_orientation"] not in ("absent", 1, 2, 3, 4, 5, 6, 7, 8):
+            problems.append(f"Invalid EXIF orientation: {metadata['exif_orientation']}")
+        metadata["metadata_status"] = "warning" if problems else "ok"
+        metadata["metadata_error"] = "; ".join(problems)
+    except (OSError, ValueError, SyntaxError, TypeError) as exc:
+        metadata.update(metadata_status="error", metadata_error=f"{type(exc).__name__}: {exc}")
+    return metadata
+
+
 def inspect_sources(source, output):
     records, invalid, previews, features = [], [], [], []
     files = sorted((p for p in source.rglob("*") if p.is_file()), key=lambda p: p.relative_to(source).as_posix())
@@ -100,21 +127,14 @@ def inspect_sources(source, output):
             continue
         h, w = image.shape[:2]
         record = {
-            "filename": relative, "source_relative_path": path.relative_to(ROOT).as_posix(),
+            "filename": relative, "source_relative_path": relative,
             "width": w, "height": h, "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
             "decoded_sha256": hashlib.sha256(f"{image.shape}|".encode() + image.tobytes()).hexdigest(),
             "exif_orientation": "unknown", "orientation": "landscape" if w >= h else "portrait",
         }
-        # Metadata is diagnostic only. Encoded pixels are never auto-rotated.
-        try:
-            from PIL import Image
-            with Image.open(path) as pil_image:
-                exif = pil_image.getexif()
-                record["exif_orientation"] = exif.get(274, "absent")
-                record["camera_make"] = exif.get(271, "absent")
-                record["camera_model"] = exif.get(272, "absent")
-        except ImportError:
-            pass
+        record.update(read_metadata(path))
+        if record["metadata_status"] != "ok":
+            print(f"Metadata {record['metadata_status']}: {relative}: {record['metadata_error']}", flush=True)
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         thumb = cv2.resize(gray, (128, 128), interpolation=cv2.INTER_AREA)
         rotations = [np.ascontiguousarray(np.rot90(thumb, k)) for k in range(4)]
@@ -182,60 +202,54 @@ def connected_groups(count, pairs, exact_only=False):
 
 
 def assign_groups(groups, train, validation, test, seed):
-    """Seeded component ordering + exact capacity DP; no suspected group is split."""
+    """Meet exact counts, with whole groups and related views in both evaluation sets."""
+    if min(train, validation, test) < 0 or sum(map(len, groups)) != train + validation + test:
+        raise ValueError("Split counts must be nonnegative and sum to the number of images.")
     ordered = list(groups)
-    random.Random(seed).shuffle(ordered)
-    ordered.sort(key=len, reverse=True)  # Stable randomized ties.
-    states = {(0, 0): []}
+    rng = random.Random(seed)
+    rng.shuffle(ordered)
+    require_related = any(len(group) > 1 for group in groups)
+    states = {(0, 0, False, False): []}
     assigned = 0
     for group in ordered:
         size = len(group)
         next_states = {}
-        for (v, t), choices in states.items():
-            for split, nv, nt in [("train", v, t), ("validation", v + size, t), ("test", v, t + size)]:
+        split_order = ["train", "validation", "test"]
+        rng.shuffle(split_order)
+        for (v, t, related_val, related_test), choices in states.items():
+            for split in split_order:
+                nv, nt = v + (size if split == "validation" else 0), t + (size if split == "test" else 0)
                 if nv <= validation and nt <= test and assigned + size - nv - nt <= train:
-                    next_states.setdefault((nv, nt), choices + [split])
+                    key = (nv, nt, related_val or (split == "validation" and size > 1),
+                           related_test or (split == "test" and size > 1))
+                    next_states.setdefault(key, choices + [split])
         states = next_states
         assigned += size
-    if (validation, test) not in states:
+    goal = (validation, test, require_related and validation > 0, require_related and test > 0)
+    if goal not in states:
         return None
     return {i: (split, f"group_{n + 1:03d}")
-            for n, (group, split) in enumerate(zip(ordered, states[(validation, test)])) for i in group}
+            for n, (group, split) in enumerate(zip(ordered, states[goal])) for i in group}
 
 
-def main():
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--images", type=Path, default=ROOT / "Object")
-    parser.add_argument("--output", type=Path, default=ROOT / "dataset")
-    parser.add_argument("--train", type=int, default=54)
-    parser.add_argument("--validation", type=int, default=15)
-    parser.add_argument("--test", type=int, default=8)
-    parser.add_argument("--seed", type=int, default=42)
-    args = parser.parse_args()
-    source, output = args.images.resolve(), args.output.resolve()
-    if source == output or source in output.parents:
-        parser.error("Outputs must be outside the original image folder.")
-    output.mkdir(parents=True, exist_ok=True)
+def prepare_dataset(args, output):
+    source = args.images.resolve()
+    params = args.params.resolve()
+    matrix, distortion, calibration_size = load_parameters(params)
+    if calibration_size != (3968, 2976):
+        raise ValueError("Expected the original-resolution calibration (3968 x 2976).")
     cv2.setNumThreads(1)
     records, invalid, unsupported, previews, features = inspect_sources(source, output)
     (output / "inventory.json").write_text(json.dumps({"valid": records, "invalid": invalid,
         "unsupported": unsupported}, indent=2), encoding="utf-8")
     if len(records) != args.train + args.validation + args.test:
-        parser.error(f"{len(records)} valid images do not match requested split counts; inventory saved.")
+        raise ValueError(f"{len(records)} valid images do not match requested split counts.")
     pairs = audit_pairs(records, features)
     groups = connected_groups(len(records), pairs)
     assignments = assign_groups(groups, args.train, args.validation, args.test, args.seed)
     grouping = "All exact, visual-candidate, and <=2-second capture groups kept together."
     if assignments is None:
-        groups = connected_groups(len(records), pairs, exact_only=True)
-        assignments = assign_groups(groups, args.train, args.validation, args.test, args.seed)
-        grouping = "Exact duplicates grouped; near/burst candidates could not all be grouped at requested counts."
-    if assignments is None:
-        parser.error("Exact duplicate groups cannot fit requested counts without leakage; no manifest written.")
-    params = ROOT / "calibration/camera_params.npz"
-    matrix, distortion, calibration_size = load_parameters(params)
-    if calibration_size != (3968, 2976):
-        parser.error("Expected the new original-resolution calibration (3968 x 2976).")
+        raise ValueError("No whole-group split fits the counts with a related-image group in each evaluation set.")
     calibration_hash = hashlib.sha256(params.read_bytes()).hexdigest()
     for i, row in enumerate(records):
         row["split"], row["group_id"] = assignments[i]
@@ -251,9 +265,15 @@ def main():
         pair["cross_split"] = pair["split_a"] != pair["split_b"]
         pair["possible_leakage"] = pair["flagged"] and pair["cross_split"]
     manifest_fields = ["filename", "source_relative_path", "split", "group_id", "seed", "width", "height",
-                       "sha256", "decoded_sha256", "exif_orientation", "undistortion_status", "calibration_sha256"]
+                       "sha256", "decoded_sha256", "exif_orientation", "metadata_status", "metadata_error",
+                       "undistortion_status", "calibration_sha256"]
     save_csv(output / "split_manifest.csv", records, manifest_fields)
-    pair_fields = [k for k in pairs[0] if k not in ("index_a", "index_b")]
+    pair_fields = [k for k in pairs[0] if k not in ("index_a", "index_b")] if pairs else [
+        "filename_a", "filename_b", "exact_file", "exact_pixels", "phash_distance_63bit",
+        "dhash_distance_64bit", "thumbnail_ssim", "rotation_b_ccw_degrees", "capture_gap_seconds",
+        "visual_candidate", "burst_candidate", "flagged", "reasons", "split_a", "split_b",
+        "cross_split", "possible_leakage",
+    ]
     save_csv(output / "all_pair_similarities.csv", pairs, pair_fields)
     flagged = [p for p in pairs if p["flagged"]]
     leaks = [p for p in pairs if p["possible_leakage"]]
@@ -289,18 +309,20 @@ def main():
         "limitations": ["Visual candidates are heuristic flags, not automatic duplicate confirmations.",
                         "Different views of the same sponge and capture setting remain correlated across splits.",
                         "No session-independent or unseen-object generalization claim follows from this split."],
-        "versions": {"python": platform.python_version(), "numpy": np.__version__, "opencv": cv2.__version__},
+        "versions": {"python": platform.python_version(), "numpy": np.__version__, "opencv": cv2.__version__, "pillow": PIL.__version__},
+        "metadata_status_counts": dict(Counter(r["metadata_status"] for r in records)),
         "exif_orientation_counts": dict(Counter(str(r["exif_orientation"]) for r in records)),
         "camera_models": dict(Counter(str(r.get("camera_model", "unknown")) for r in records)),
     }
     config = {
-        "source_directory": str(source), "manifest": str(output / "split_manifest.csv"),
+        "schema_version": 2, "manifest_path_base": "source_directory",
+        "source_directory": str(source), "manifest": str(args.output.resolve() / "split_manifest.csv"),
         "calibration_file": str(params), "calibration_sha256": calibration_hash,
         "calibration_image_size": list(calibration_size), "camera_matrix": matrix.tolist(),
         "dist_coeffs": distortion.ravel().tolist(), "encoded_pixel_orientation": True,
         "future_undistortion": {"script": str(ROOT / "undistort.py"), "alpha": 1.0, "crop": False,
                                 "portrait_policy": "Resolve rotation direction/camera coordinates before applying calibration; do not use --allow-resize to force portrait inputs.",
-                                "output_directory": str(output / "undistorted"),
+                                "output_directory": str(args.output.resolve() / "undistorted"),
                                 "annotation_coordinate_space": "undistorted pixels; preserve original split and record the output camera matrix"},
         "green_top_surface_mm": {"length": 93, "width": 74, "source": "user-measured"},
         "images_undistorted": False, "annotations_created": False, "training_started": False,
@@ -308,6 +330,25 @@ def main():
     (output / "dataset_config.json").write_text(json.dumps(config, indent=2), encoding="utf-8")
     (output / "audit_report.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
     print(json.dumps(summary, indent=2), flush=True)
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--images", type=Path, default=ROOT / "Object")
+    parser.add_argument("--output", type=Path, required=True, help="A new run directory; existing evidence is never replaced")
+    parser.add_argument("--params", type=Path, default=ROOT / "calibration/camera_params.npz")
+    parser.add_argument("--train", type=int, default=54)
+    parser.add_argument("--validation", type=int, default=15)
+    parser.add_argument("--test", type=int, default=8)
+    parser.add_argument("--seed", type=int, default=42)
+    args = parser.parse_args()
+    try:
+        if min(args.train, args.validation, args.test) < 0 or args.train + args.validation + args.test < 2:
+            raise ValueError("Provide nonnegative counts for at least two images.")
+        with new_output_directory(args.output, [args.images]) as staging:
+            prepare_dataset(args, staging)
+    except (OSError, ValueError, KeyError, cv2.error) as exc:
+        parser.exit(1, f"Dataset preparation failed: {exc}\n")
 
 
 if __name__ == "__main__":
